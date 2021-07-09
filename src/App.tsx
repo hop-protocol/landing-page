@@ -82,6 +82,7 @@ function App() {
           <Link
             href={hopUrl}
             target="_blank"
+            rel="noopener noreferrer"
             className={styles.appButton}
           >
             <img src={useHop} className={styles.useHop} alt="logo" />
@@ -95,24 +96,28 @@ function App() {
             <Link
               href={discordUrl}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img src={discord} className={styles.link} alt="logo" />
             </Link>
             <Link
               href={twitterUrl}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img src={twitter} className={styles.link} alt="logo" />
             </Link>
             <Link
               href={githubUrl}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img src={github} className={styles.link} alt="logo" />
             </Link>
             <Link
               href={docsUrl}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img src={docs} className={styles.link} alt="logo" />
             </Link>
