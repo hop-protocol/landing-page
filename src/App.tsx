@@ -79,11 +79,9 @@ function App() {
           className={styles.container}
         >
         <img src={logo} className={styles.logo} alt="logo" />
-          <Link 
-            component="button"
-            onClick={() => {
-              window.open(hopUrl)
-            }}
+          <Link
+            href={hopUrl}
+            target="_blank"
             className={styles.appButton}
           >
             <img src={useHop} className={styles.useHop} alt="logo" />
@@ -94,35 +92,27 @@ function App() {
             alignItems="center"
             className={styles.links}
           >
-          <Link 
-              component="button"
-              onClick={() => {
-                window.open(discordUrl)
-              }}
+            <Link
+              href={discordUrl}
+              target="_blank"
             >
               <img src={discord} className={styles.link} alt="logo" />
             </Link>
-            <Link 
-              component="button"
-              onClick={() => {
-                window.open(twitterUrl)
-              }}
+            <Link
+              href={twitterUrl}
+              target="_blank"
             >
               <img src={twitter} className={styles.link} alt="logo" />
             </Link>
-            <Link 
-              component="button"
-              onClick={() => {
-                window.open(githubUrl)
-              }}
+            <Link
+              href={githubUrl}
+              target="_blank"
             >
               <img src={github} className={styles.link} alt="logo" />
             </Link>
-            <Link 
-              component="button"
-              onClick={() => {
-                window.open(docsUrl)
-              }}
+            <Link
+              href={docsUrl}
+              target="_blank"
             >
               <img src={docs} className={styles.link} alt="logo" />
             </Link>
