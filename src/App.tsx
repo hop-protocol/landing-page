@@ -39,7 +39,6 @@ const useStyles = makeStyles(() => ({
   link: {
     margin: '1.8rem',
     width: '3.5rem',
-    fill: 'red',
     opacity: '35%',
     '&:hover': {
       opacity: '70%'
