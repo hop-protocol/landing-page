@@ -62,7 +62,7 @@ const useStyles = makeStyles(() => ({
 
 type Props = {}
 
-const COMPONENT_NAME: FC<Props> = () => {
+const Home: FC<Props> = () => {
   const styles = useStyles()
 
   return (
@@ -124,4 +124,4 @@ const COMPONENT_NAME: FC<Props> = () => {
   )
 }
 
-export default COMPONENT_NAME
+export default Home
