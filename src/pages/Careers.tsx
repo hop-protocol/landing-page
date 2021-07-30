@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import MuiLink from '@material-ui/core/Link'
-import background from '../assets/page-bg.svg';
 import BasePage from './BasePage'
 
 const useStyles = makeStyles(theme => ({
@@ -26,7 +25,6 @@ const Careers: FC<Props> = () => {
 
   return (
     <BasePage>
-      <img src={background} className={styles.background} alt="logo" />
       <Breadcrumbs className={styles.breadcrumbs}>
         <MuiLink color="inherit" href="/">
           <Typography color="primary">Hop</Typography>
