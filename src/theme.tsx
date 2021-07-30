@@ -86,11 +86,11 @@ const typography: TypographyOptions = {
   },
   h2: {
     fontSize: '6.0rem',
-    fontWeight: 300
+    fontWeight: 600
   },
   h3: {
     fontSize: '4.1rem',
-    fontWeight: 400
+    fontWeight: 600
   },
   h4: {
     fontSize: '2.7rem',
@@ -113,8 +113,8 @@ const typography: TypographyOptions = {
     fontWeight: 700
   },
   body1: {
-    fontSize: '1.4rem',
-    fontWeight: 400
+    fontSize: '1.8rem',
+    fontWeight: 600
   },
   body2: {
     fontSize: '1.2rem',
