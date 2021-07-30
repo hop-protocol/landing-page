@@ -150,7 +150,7 @@ const Home: FC<Props> = () => {
               </Typography>
             </MuiLink>
             <MuiLink
-              href={faqUrl}
+              href={docsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.footerLink}
