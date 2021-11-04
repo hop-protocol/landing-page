@@ -107,7 +107,7 @@ const FEDeveloper: FC<Props> = () => {
             Reach out in our
             {" "}
             <Link
-              href={"https://discord.gg/2BxafMKP"}
+              href={"https://discord.gg/PwCF88emV4"}
               target="_blank"
               rel="noopener noreferrer"
             >
