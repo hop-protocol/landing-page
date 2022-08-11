@@ -18,7 +18,8 @@ import {
   faqUrl,
   githubUrl,
   mediumUrl,
-  twitterUrl
+  twitterUrl,
+  forumUrl
 } from '../config'
 
 const useStyles = makeStyles(theme => ({
@@ -157,6 +158,16 @@ const Home: FC<Props> = () => {
             >
               <Typography variant="subtitle2" color="primary">
                 Docs
+              </Typography>
+            </MuiLink>
+            <MuiLink
+              href={forumUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.footerLink}
+            >
+              <Typography variant="subtitle2" color="primary">
+                Forum
               </Typography>
             </MuiLink>
             <Link to="/careers" className={styles.footerLink}>
