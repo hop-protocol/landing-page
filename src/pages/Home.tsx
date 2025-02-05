@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import background from '../assets/landing-page-bg.svg';
 import logo from '../assets/hop-logo.svg';
 import discord from '../assets/discord.svg';
 import github from '../assets/github.svg';
 import medium from '../assets/medium.svg';
-import twitter from '../assets/twitter.svg';
+import twitter from '../assets/twitter-x.svg';
 import useHop from '../assets/use-hop.svg';
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
@@ -170,11 +170,13 @@ const Home: FC<Props> = () => {
                 Forum
               </Typography>
             </MuiLink>
+            {/*}
             <Link to="/careers" className={styles.footerLink}>
               <Typography variant="subtitle2" color="primary">
                 Careers
               </Typography>
             </Link>
+            */}
           </Box>
         </Box>
       </Box>
