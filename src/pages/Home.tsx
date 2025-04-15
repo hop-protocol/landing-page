@@ -337,20 +337,28 @@ interface TokenCardProps {
 }
 
 const TokenCard: React.FC<TokenCardProps> = ({ icon, name, fullName, description }) => (
-  <Box
+  <Card
     sx={{
       display: 'flex',
       alignItems: 'center',
       gap: 2,
       p: 2,
-      borderRadius: '8px',
-      bgcolor: theme => theme.palette.background.contrast,
-      boxShadow: theme => theme.palette.mode === 'light' ? 
-        '0px 4px 10px rgba(0, 0, 0, 0.05)' : 
-        '0px 4px 10px rgba(0, 0, 0, 0.2)',
-      transition: 'transform 0.2s ease-in-out',
-      '&:hover': {
-        transform: 'translateY(-2px)'
+      position: 'relative',
+      overflow: 'hidden',
+      '&::before': {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'linear-gradient(45deg, rgba(179, 46, 255, 0.15), rgba(242, 164, 152, 0.15))',
+        opacity: 0,
+        transition: 'opacity 0.3s ease-in-out',
+        className: 'card-gradient'
+      },
+      '&:hover::before': {
+        opacity: 1
       }
     }}
   >
@@ -360,10 +368,12 @@ const TokenCard: React.FC<TokenCardProps> = ({ icon, name, fullName, description
       sx={{
         width: 40,
         height: 40,
-        bgcolor: 'transparent'
+        bgcolor: 'transparent',
+        position: 'relative',
+        zIndex: 1
       }}
     />
-    <Box>
+    <Box sx={{ position: 'relative', zIndex: 1 }}>
       <Typography variant="h6" sx={{ fontSize: '1.1rem', fontWeight: 600 }}>
         {name}
       </Typography>
@@ -371,7 +381,7 @@ const TokenCard: React.FC<TokenCardProps> = ({ icon, name, fullName, description
         {fullName}
       </Typography>
     </Box>
-  </Box>
+  </Card>
 )
 
 const Home: FC = () => {
@@ -537,42 +547,85 @@ const Home: FC = () => {
           >
             Bridge Securely, Faster, and Cheaper
           </Typography>
-          <Grid container spacing={4}>
-            {[
-              {
-                title: 'Fast Transfers',
-                description: 'Send tokens between networks almost immediately without waiting for challenge periods',
-                icon: <FlashOnIcon sx={{ fontSize: 40, color: 'primary.main' }} />
-              },
-              {
-                title: 'Secure & Trustless',
-                description: 'Fully trustless cross-chain bridge with no central authority or validator set',
-                icon: <SecurityIcon sx={{ fontSize: 40, color: 'primary.main' }} />
-              },
-              {
-                title: 'Cost Effective',
-                description: 'Save on gas fees with optimized bridging and competitive rates',
-                icon: <SavingsIcon sx={{ fontSize: 40, color: 'primary.main' }} />
-              }
-            ].map((feature, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <Card>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    {feature.icon}
-                    <Typography variant="h5" sx={{ 
-                      ml: 2,
-                      fontSize: '1.5rem',
-                      fontWeight: 600
-                    }}>
-                      {feature.title}
-                    </Typography>
-                  </Box>
-                  <Typography variant="body1" color="textSecondary">
-                    {feature.description}
+          <Grid container spacing={4} sx={{ mb: 8 }}>
+            <Grid item xs={12} md={4}>
+              <Card sx={{ height: '100%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+                <Box sx={{ position: 'relative', zIndex: 1 }}>
+                  <FlashOnIcon color="primary" sx={{ fontSize: '3rem', mb: 2 }} />
+                  <Typography variant="h5" gutterBottom>
+                    Lightning Fast
                   </Typography>
-                </Card>
-              </Grid>
-            ))}
+                  <Typography variant="body1" color="textSecondary">
+                    Experience near-instant transfers between networks with our optimized bridging protocol.
+                  </Typography>
+                </Box>
+                <Box
+                  className="card-gradient"
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'linear-gradient(45deg, rgba(179, 46, 255, 0.15), rgba(242, 164, 152, 0.15))',
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease-in-out'
+                  }}
+                />
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Card sx={{ height: '100%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+                <Box sx={{ position: 'relative', zIndex: 1 }}>
+                  <SecurityIcon color="primary" sx={{ fontSize: '3rem', mb: 2 }} />
+                  <Typography variant="h5" gutterBottom>
+                    Battle-tested Security
+                  </Typography>
+                  <Typography variant="body1" color="textSecondary">
+                    Built on proven technology with rigorous security measures and continuous auditing.
+                  </Typography>
+                </Box>
+                <Box
+                  className="card-gradient"
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'linear-gradient(45deg, rgba(179, 46, 255, 0.15), rgba(242, 164, 152, 0.15))',
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease-in-out'
+                  }}
+                />
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Card sx={{ height: '100%', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+                <Box sx={{ position: 'relative', zIndex: 1 }}>
+                  <SavingsIcon color="primary" sx={{ fontSize: '3rem', mb: 2 }} />
+                  <Typography variant="h5" gutterBottom>
+                    Cost Effective
+                  </Typography>
+                  <Typography variant="body1" color="textSecondary">
+                    Save on gas fees with optimized cross-chain transfers and competitive rates.
+                  </Typography>
+                </Box>
+                <Box
+                  className="card-gradient"
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'linear-gradient(45deg, rgba(179, 46, 255, 0.15), rgba(242, 164, 152, 0.15))',
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease-in-out'
+                  }}
+                />
+              </Card>
+            </Grid>
           </Grid>
         </Container>
       </Box>
