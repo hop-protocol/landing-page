@@ -2,20 +2,26 @@ import React from 'react';
 import {
   BrowserRouter as Router,
 } from 'react-router-dom'
-import { ThemeProvider } from '@material-ui/core/styles'
-import './App.css'
-import theme from './theme'
 import Routes from './Routes'
+import { ThemeProvider } from './ThemeProvider'
+import Box from '@mui/material/Box'
+import './App.css'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-        <Router>
+    <ThemeProvider>
+      <Router>
+        <Box
+          sx={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column'
+          }}
+        >
           <Routes />
-        </Router>
-      </ThemeProvider>
-    </div>
+        </Box>
+      </Router>
+    </ThemeProvider>
   );
 }
 

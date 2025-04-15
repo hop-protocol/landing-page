@@ -1,11 +1,10 @@
 import { CSSProperties } from 'react'
-import createBreakpoints from '@material-ui/core/styles/createBreakpoints'
-import { TypographyOptions } from '@material-ui/core/styles/createTypography'
+import { TypographyOptions } from '@mui/material/styles/createTypography'
 
 // https://stackoverflow.com/a/64135466/1439168
-import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core/styles'
+import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@mui/material/styles'
 
-declare module '@material-ui/core/styles/createTheme' {
+declare module '@mui/material/styles/createTheme' {
   interface Theme {
     padding: {
       thick: CSSProperties['paddingTop']
@@ -134,20 +133,9 @@ const padding = {
   extraLight: '1.2rem'
 }
 
-const breakpoints = createBreakpoints({})
 
 const theme = createMuiTheme({
-  palette,
-  padding,
-  typography,
-  breakpoints,
-  overrides: {
-    MuiTouchRipple: {
-      rippleVisible: {
-        color: 'rgba(247, 189, 181, 0.8)'
-      }
-    }
-  }
+
 })
 
 export default theme
