@@ -11,6 +11,7 @@ import MenuBookIcon from '@mui/icons-material/MenuBookOutlined'
 import ExploreIcon from '@mui/icons-material/ExploreOutlined'
 import HelpIcon from '@mui/icons-material/HelpOutlineOutlined'
 import ForumIcon from '@mui/icons-material/ForumOutlined'
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import FlashOnIcon from '@mui/icons-material/FlashOn'
@@ -38,6 +39,7 @@ import github from '../assets/github.svg'
 import medium from '../assets/medium.svg'
 import twitter from '../assets/twitter-x.svg'
 import circlesBg from '../assets/circles-bg.svg'
+import discourse from '../assets/discourse.svg'
 
 // Constants
 const EXPLORER_URLS = {
@@ -773,7 +775,8 @@ const Home: FC = () => {
               { icon: discord, alt: "Discord", url: discordUrl },
               { icon: twitter, alt: "Twitter", url: twitterUrl },
               { icon: github, alt: "GitHub", url: githubUrl },
-              { icon: medium, alt: "Blog", url: mediumUrl }
+              { icon: medium, alt: "Blog", url: mediumUrl },
+              { icon: discourse, alt: "Forum", url: forumUrl }
             ].map((social, index) => (
               <NavLink 
                 key={index} 
@@ -953,6 +956,18 @@ const Home: FC = () => {
                   >
                     <HelpIcon sx={{ mr: 1, fontSize: '1.2rem' }} /> 
                     FAQ
+                  </NavLink>
+                  <NavLink 
+                    href={discordUrl}
+                    target="_blank"
+                    sx={{ 
+                      ml: 0,
+                      display: 'flex !important',
+                      fontSize: { xs: '0.9rem', sm: '1rem' }
+                    }}
+                  >
+                    <ChatBubbleOutlineIcon sx={{ mr: 1, fontSize: '1.2rem' }} /> 
+                    Discord
                   </NavLink>
                   <NavLink 
                     href={forumUrl}
