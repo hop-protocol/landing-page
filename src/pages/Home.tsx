@@ -520,7 +520,7 @@ const Home: FC = () => {
             highlighted
             large
           >
-            Start Bridging
+            Start Hopping
           </StyledButton>
         </Box>
       </Container>
@@ -556,11 +556,10 @@ const Home: FC = () => {
                 <Box sx={{ position: 'relative', zIndex: 1 }}>
                   <FlashOnIcon color="primary" sx={{ fontSize: '3rem', mb: 2 }} />
                   <Typography variant="h5" gutterBottom>
-                    Lightning Fast
+                    Fast Transfers
                   </Typography>
                   <Typography variant="body1" color="textSecondary">
-                    Experience near-instant transfers between networks with our optimized bridging protocol.
-                  </Typography>
+Send tokens between networks almost immediately without waiting for challenge periods.                  </Typography>
                 </Box>
                 <Box
                   className="card-gradient"
@@ -582,10 +581,10 @@ const Home: FC = () => {
                 <Box sx={{ position: 'relative', zIndex: 1 }}>
                   <SecurityIcon color="primary" sx={{ fontSize: '3rem', mb: 2 }} />
                   <Typography variant="h5" gutterBottom>
-                    Battle-tested Security
+                    Secure & Trustless
                   </Typography>
                   <Typography variant="body1" color="textSecondary">
-                    Built on proven technology with rigorous security measures and continuous auditing.
+Fully trustless cross-chain bridge with no central authority or validator set.
                   </Typography>
                 </Box>
                 <Box
@@ -611,7 +610,7 @@ const Home: FC = () => {
                     Cost Effective
                   </Typography>
                   <Typography variant="body1" color="textSecondary">
-                    Save on gas fees with optimized cross-chain transfers and competitive rates.
+Save on gas fees with optimized bridging and competitive rates.
                   </Typography>
                 </Box>
                 <Box
@@ -648,7 +647,7 @@ const Home: FC = () => {
               fontWeight: 700,
               mb: 2
             }}>
-              Trusted Bridge Protocol
+              Billions hopped. Zero trust issues.
             </Typography>
             <Typography variant="h3" sx={{
               fontSize: { xs: '2.5rem', sm: '3rem' },
