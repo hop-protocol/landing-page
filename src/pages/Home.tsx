@@ -224,7 +224,7 @@ const StyledButton = styled(Button, {
   letterSpacing: 0,
   lineHeight: 1,
   '&:hover': {
-    background: 'linear-gradient(99.85deg, rgb(242, 164, 152) -18.29%, rgb(179, 46, 255) 109.86%)',
+    // background: 'linear-gradient(99.85deg, rgb(242, 164, 152) -18.29%, rgb(179, 46, 255) 109.86%)',
     boxShadow: 'rgba(179, 46, 255, 0.4) 0px 4px 18px, rgba(242, 164, 152, 0.3) 0px 2px 10px',
     transform: 'translateY(-2px)'
   },
