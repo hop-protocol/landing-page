@@ -710,6 +710,28 @@ Save on gas fees with optimized bridging and competitive rates.
               }
             }} />
 
+            {/* Volume Label */}
+            <Typography sx={{
+              position: 'absolute',
+              top: '5%',
+              right: '5%',
+              fontSize: '1.25rem',
+              fontWeight: 700,
+              color: 'primary.main',
+              px: 1.5,
+              py: 0.5,
+              borderRadius: '4px',
+              bgcolor: theme => theme.palette.mode === 'dark' 
+                ? 'rgba(0, 0, 0, 0.2)' 
+                : 'rgba(255, 255, 255, 0.8)',
+              boxShadow: theme => theme.palette.mode === 'dark'
+                ? '0 2px 4px rgba(0,0,0,0.2)'
+                : '0 2px 4px rgba(0,0,0,0.1)',
+              backdropFilter: 'blur(4px)'
+            }}>
+              $6B+
+            </Typography>
+
             {/* Year Labels */}
             <Box sx={{
               position: 'absolute',
