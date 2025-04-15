@@ -1,7 +1,7 @@
 // React and Material-UI imports
 import React, { FC } from 'react'
-import { styled, Theme, useTheme } from '@mui/material/styles'
-import { Box, Typography, Link as MuiLink, Container, Grid, Avatar, useMediaQuery, Stack } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import { Box, Typography, Link as MuiLink, Container, Grid, Avatar, Stack } from '@mui/material'
 import Button, { ButtonProps } from '@mui/material/Button'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
@@ -13,7 +13,6 @@ import HelpIcon from '@mui/icons-material/HelpOutlineOutlined'
 import ForumIcon from '@mui/icons-material/ForumOutlined'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
-import MenuIcon from '@mui/icons-material/Menu'
 import FlashOnIcon from '@mui/icons-material/FlashOn'
 import SecurityIcon from '@mui/icons-material/Security'
 import SavingsIcon from '@mui/icons-material/Savings'
@@ -32,7 +31,6 @@ import {
 } from '../config'
 
 // Import assets
-import background from '../assets/landing-page-bg.svg'
 import logoBlack from '../assets/hop-logo-black.svg'
 import logoWhite from '../assets/hop-logo-white.svg'
 import discord from '../assets/discord.svg'
@@ -134,15 +132,6 @@ const NavLink = styled(MuiLink)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     display: 'none'
-  }
-}))
-
-const MobileNavLink = styled(NavLink)(({ theme }) => ({
-  display: 'none',
-  [theme.breakpoints.down('sm')]: {
-    display: 'flex',
-    margin: theme.spacing(1, 0),
-    fontSize: '1.1rem'
   }
 }))
 
@@ -335,60 +324,6 @@ const NetworkCard: React.FC<NetworkCardProps> = ({ icon, name, description, comi
   </Card>
 )
 
-// Add WhitepaperMenu component
-const WhitepaperMenu: FC = () => {
-  const theme = useTheme()
-  return (
-    <Box sx={{
-      position: 'relative',
-      display: 'inline-block',
-      '&:hover .dropdown': {
-        display: 'block'
-      }
-    }}>
-      <NavLink href={docsUrl} target="_blank">
-        Whitepaper
-      </NavLink>
-      <Box className="dropdown" sx={{
-        display: 'none',
-        position: 'absolute',
-        top: '100%',
-        right: 0,
-        bgcolor: 'background.paper',
-        borderRadius: '4px',
-        boxShadow: 4,
-        border: '1px solid',
-        borderColor: 'divider',
-        p: 1,
-        zIndex: 1000,
-        minWidth: 160,
-        mt: 1
-      }}>
-        <NavLink href={WHITEPAPER_URLS.v1} target="_blank" rel="noopener noreferrer" sx={{ ml: 0, mb: 1 }}>
-          Whitepaper <Box component="span" sx={{
-            bgcolor: theme => theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
-            px: 1,
-            py: 0.5,
-            borderRadius: '4px',
-            fontSize: '0.75rem',
-            ml: 1
-          }}>V1</Box>
-        </NavLink>
-        <NavLink href={WHITEPAPER_URLS.v2} target="_blank" rel="noopener noreferrer" sx={{ ml: 0 }}>
-          Whitepaper <Box component="span" sx={{
-            bgcolor: theme => theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
-            px: 1,
-            py: 0.5,
-            borderRadius: '4px',
-            fontSize: '0.75rem',
-            ml: 1
-          }}>V2</Box>
-        </NavLink>
-      </Box>
-    </Box>
-  )
-}
-
 const DarkModeSwitch = styled(IconButton)(({ theme }) => ({
   marginLeft: theme.spacing(2),
   color: theme.palette.text.primary
@@ -441,9 +376,6 @@ const TokenCard: React.FC<TokenCardProps> = ({ icon, name, fullName, description
 
 const Home: FC = () => {
   const { mode, toggleColorMode } = useColorMode()
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
-  const isTablet = useMediaQuery(theme.breakpoints.down('md'))
 
   const supportedTokens = [
     { 
