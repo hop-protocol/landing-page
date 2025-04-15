@@ -66,7 +66,7 @@ const CHAIN_ICONS = {
 
 // Create styled components
 const Background = styled('div')(({ theme }) => ({
-  zIndex: -1,
+    zIndex: -1,
   position: 'absolute',
   top: 0,
   left: 0,
@@ -117,7 +117,7 @@ const NavLink = styled(MuiLink)(({ theme }) => ({
   alignItems: 'center',
   fontSize: '1rem',
   fontWeight: 500,
-  '&:hover': {
+    '&:hover': {
     textDecoration: 'none',
     opacity: 0.8,
     color: theme.palette.primary.main
@@ -163,7 +163,7 @@ const Card = styled(Box)(({ theme }) => ({
       8px 8px 24px rgba(174, 174, 192, 0.4),
       -8px -8px 24px rgba(255, 255, 255, 0.7)
     `,
-  '&:hover': {
+    '&:hover': {
     transform: 'translateY(-4px)',
     boxShadow: theme.palette.mode === 'dark'
       ? `
@@ -570,8 +570,8 @@ const Home: FC = () => {
             Fast, secure, and cost-effective token transfers between Ethereum rollups
           </Typography>
           <StyledButton 
-            href={hopUrl}
-            target="_blank"
+          href={hopUrl}
+          target="_blank"
             highlighted
             large
           >
@@ -793,8 +793,8 @@ const Home: FC = () => {
               <NavLink 
                 key={index} 
                 href={social.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
                 sx={{ 
                   ml: 0,
                   display: 'flex !important',
@@ -833,7 +833,7 @@ const Home: FC = () => {
                 <Stack spacing={1.5}>
                   <NavLink 
                     href={WHITEPAPER_URLS.v1} 
-                    target="_blank" 
+              target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -845,7 +845,7 @@ const Home: FC = () => {
                   </NavLink>
                   <NavLink 
                     href={WHITEPAPER_URLS.v2} 
-                    target="_blank" 
+              target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -857,7 +857,7 @@ const Home: FC = () => {
                   </NavLink>
                   <NavLink 
                     href={docsUrl} 
-                    target="_blank" 
+              target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -868,7 +868,7 @@ const Home: FC = () => {
                     Documentation
                   </NavLink>
                 </Stack>
-              </Box>
+          </Box>
             </Grid>
 
             <Grid item xs={12} sm={6} md={4}>
@@ -941,8 +941,8 @@ const Home: FC = () => {
                 </Typography>
                 <Stack spacing={1.5}>
                   <NavLink 
-                    href={faqUrl} 
-                    target="_blank" 
+              href={faqUrl}
+              target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -953,8 +953,8 @@ const Home: FC = () => {
                     FAQ
                   </NavLink>
                   <NavLink 
-                    href={forumUrl} 
-                    target="_blank" 
+              href={forumUrl}
+              target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -962,10 +962,10 @@ const Home: FC = () => {
                     }}
                   >
                     <ForumIcon sx={{ mr: 1, fontSize: '1.2rem' }} /> 
-                    Forum
+                Forum
                   </NavLink>
                 </Stack>
-              </Box>
+          </Box>
             </Grid>
           </Grid>
         </Container>
