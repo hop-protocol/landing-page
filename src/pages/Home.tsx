@@ -750,6 +750,70 @@ const Home: FC = () => {
         </Container>
       </Box>
 
+      {/* Community Section */}
+      <Box component="section" sx={theme => ({
+        py: { xs: 8, sm: 10 },
+        background: theme.palette.mode === 'dark'
+          ? 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(232, 65, 66, 0.05) 100%)'
+          : 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(232, 65, 66, 0.03) 100%)',
+        borderTop: `1px solid ${theme.palette.divider}`,
+        borderBottom: `1px solid ${theme.palette.divider}`
+      })}>
+        <Container maxWidth="lg">
+          <Box sx={{
+            textAlign: 'center',
+            maxWidth: '800px',
+            mx: 'auto'
+          }}>
+            <Typography
+              variant="h2"
+              align="center"
+              sx={{
+                mb: 2,
+                fontSize: { xs: '2rem', md: '2.5rem' },
+                fontWeight: 600
+              }}
+            >
+              Join Our Community
+            </Typography>
+            <Typography 
+              variant="h6" 
+              align="center" 
+              color="textSecondary" 
+              sx={{ 
+                mb: 6,
+                fontSize: { xs: '1rem', sm: '1.1rem' }
+              }}
+            >
+              Connect with developers, users, and contributors. Get support, share ideas, and be part of the Hop ecosystem.
+            </Typography>
+            <StyledButton
+              href={discordUrl}
+              target="_blank"
+              large
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 1.5,
+                px: 4,
+                py: 2
+              }}
+            >
+              <img 
+                src={discord} 
+                alt="Discord"
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  filter: 'brightness(0) invert(1)'
+                }}
+              />
+              Join Discord
+            </StyledButton>
+          </Box>
+        </Container>
+      </Box>
+
       {/* Footer */}
       <Box sx={theme => ({
         py: { xs: 4, sm: 6, md: 8 },
