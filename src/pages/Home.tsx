@@ -778,23 +778,24 @@ const Home: FC = () => {
               <NavLink 
                 key={index} 
                 href={social.url} 
-              target="_blank"
-              rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 sx={{ 
                   ml: 0,
                   display: 'flex !important',
                   alignItems: 'center',
-                  fontSize: { xs: '0.9rem', sm: '1rem' }
+                  fontSize: { xs: '1.1rem', sm: '1.2rem' },
+                  fontWeight: 600,
+                  '& img': {
+                    width: '24px',
+                    height: '24px',
+                    marginRight: '12px'
+                  }
                 }}
               >
                 <img 
                   src={social.icon} 
-                  alt={social.alt} 
-                  style={{ 
-                    marginRight: 8,
-                    width: '20px',
-                    height: '20px'
-                  }} 
+                  alt={social.alt}
                 /> 
                 {social.alt}
               </NavLink>
@@ -803,7 +804,23 @@ const Home: FC = () => {
 
           {/* Footer Links Grid */}
           <Grid container spacing={{ xs: 3, md: 4 }}>
-            <Grid item xs={12} sm={6} md={4}>
+            {/* Empty column for logo */}
+            <Grid item xs={12} sm={6} md={3}>
+              <Box sx={{ mb: { xs: 2, md: 0 } }}>
+                <Logo
+                  src={mode === 'dark' ? logoWhite : logoBlack}
+                  alt="Hop Protocol"
+                  sx={{
+                    height: '2rem',
+                    filter: theme => theme.palette.mode === 'dark' ? 'brightness(0) invert(1)' : 'brightness(0) invert(0)',
+                    cursor: 'pointer'
+                  }}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                />
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3}>
               <Box sx={{ mb: { xs: 2, md: 0 } }}>
                 <Typography 
                   variant="h6" 
@@ -818,7 +835,7 @@ const Home: FC = () => {
                 <Stack spacing={1.5}>
                   <NavLink 
                     href={WHITEPAPER_URLS.v1} 
-              target="_blank"
+                    target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -830,7 +847,7 @@ const Home: FC = () => {
                   </NavLink>
                   <NavLink 
                     href={WHITEPAPER_URLS.v2} 
-              target="_blank"
+                    target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -842,7 +859,7 @@ const Home: FC = () => {
                   </NavLink>
                   <NavLink 
                     href={docsUrl} 
-              target="_blank"
+                    target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -853,10 +870,10 @@ const Home: FC = () => {
                     Documentation
                   </NavLink>
                 </Stack>
-          </Box>
+              </Box>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={3}>
               <Box sx={{ mb: { xs: 2, md: 0 } }}>
                 <Typography 
                   variant="h6" 
@@ -912,7 +929,7 @@ const Home: FC = () => {
               </Box>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={3}>
               <Box sx={{ mb: { xs: 2, md: 0 } }}>
                 <Typography 
                   variant="h6" 
@@ -926,8 +943,8 @@ const Home: FC = () => {
                 </Typography>
                 <Stack spacing={1.5}>
                   <NavLink 
-              href={faqUrl}
-              target="_blank"
+                    href={faqUrl}
+                    target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -938,8 +955,8 @@ const Home: FC = () => {
                     FAQ
                   </NavLink>
                   <NavLink 
-              href={forumUrl}
-              target="_blank"
+                    href={forumUrl}
+                    target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -947,10 +964,10 @@ const Home: FC = () => {
                     }}
                   >
                     <ForumIcon sx={{ mr: 1, fontSize: '1.2rem' }} /> 
-                Forum
+                    Forum
                   </NavLink>
                 </Stack>
-          </Box>
+              </Box>
             </Grid>
           </Grid>
         </Container>
