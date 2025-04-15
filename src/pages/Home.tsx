@@ -388,6 +388,7 @@ const TokenCard: React.FC<TokenCardProps> = ({ icon, name, fullName, description
 
 const Home: FC = () => {
   const { mode, toggleColorMode } = useColorMode()
+  const currentYear = new Date().getFullYear()
 
   const supportedTokens = [
     { 
@@ -508,10 +509,10 @@ const Home: FC = () => {
             fontSize: { xs: '1.2rem', sm: '1.5rem' },
             color: 'text.secondary',
             mb: 6,
-            maxWidth: '800px',
+            maxWidth: '840px',
             mx: 'auto'
           }}>
-            Fast, secure, and cost-effective token transfers between Ethereum rollups
+            Fast, secure, and cost-effective token transfers between Ethereum rollups 🐰
           </Typography>
           <StyledButton 
           href={hopUrl}
@@ -629,6 +630,134 @@ const Home: FC = () => {
               </Card>
             </Grid>
           </Grid>
+        </Container>
+      </Box>
+
+      {/* Volume Stats Section */}
+      <Box sx={theme => ({
+        py: { xs: 8, sm: 10 },
+        background: theme.palette.mode === 'dark'
+          ? 'linear-gradient(180deg, rgba(232, 65, 66, 0.05) 0%, rgba(0, 0, 0, 0) 100%)'
+          : 'linear-gradient(180deg, rgba(232, 65, 66, 0.03) 0%, rgba(255, 255, 255, 0) 100%)',
+        borderBottom: `1px solid ${theme.palette.divider}`
+      })}>
+        <Container maxWidth="lg">
+          <Box sx={{ textAlign: 'center', mb: 6 }}>
+            <Typography variant="h2" sx={{
+              fontSize: { xs: '2rem', sm: '2.5rem' },
+              fontWeight: 700,
+              mb: 2
+            }}>
+              Trusted Bridge Protocol
+            </Typography>
+            <Typography variant="h3" sx={{
+              fontSize: { xs: '2.5rem', sm: '3rem' },
+              fontWeight: 800,
+              mb: 2,
+              background: 'linear-gradient(90deg, rgb(226, 123, 216), rgb(142, 104, 224) 70%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: theme => theme.palette.mode === 'dark'
+                ? '0 0 40px rgba(226, 123, 216, 0.3)'
+                : '0 0 40px rgba(226, 123, 216, 0.1)'
+            }}>
+              $6B+ Cumulative Volume
+            </Typography>
+            <Typography variant="h6" color="textSecondary" sx={{
+              mb: 4,
+              fontSize: { xs: '1rem', sm: '1.1rem' }
+            }}>
+              Securely bridging assets since 2021
+            </Typography>
+          </Box>
+
+          {/* Decorative Chart */}
+          <Box sx={{
+            height: '200px',
+            position: 'relative',
+            mb: 4,
+            mx: 'auto',
+            maxWidth: '800px'
+          }}>
+            {/* Chart Background */}
+            <Box sx={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: '100%',
+              background: theme => `linear-gradient(180deg, 
+                ${theme.palette.mode === 'dark' ? 'rgba(179, 46, 255, 0.1)' : 'rgba(179, 46, 255, 0.05)'} 0%, 
+                ${theme.palette.mode === 'dark' ? 'rgba(242, 164, 152, 0.05)' : 'rgba(242, 164, 152, 0.02)'} 100%)`,
+              borderRadius: '8px'
+            }} />
+
+            {/* Chart Line */}
+            <Box sx={{
+              position: 'absolute',
+              bottom: '20px',
+              left: '20px',
+              right: '20px',
+              height: '140px',
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: '100%',
+                background: `linear-gradient(90deg, rgba(179, 46, 255, 0.8), rgba(242, 164, 152, 0.8))`,
+                clipPath: 'polygon(0 100%, 2% 90%, 5% 85%, 10% 82%, 15% 80%, 20% 75%, 25% 70%, 30% 65%, 35% 62%, 40% 55%, 45% 50%, 50% 48%, 55% 45%, 60% 40%, 65% 38%, 70% 35%, 75% 30%, 80% 28%, 85% 25%, 90% 20%, 95% 18%, 98% 15%, 100% 10%, 100% 100%)',
+              }
+            }} />
+
+            {/* Year Labels */}
+            <Box sx={{
+              position: 'absolute',
+              bottom: 0,
+              left: '20px',
+              right: '20px',
+              display: 'flex',
+              justifyContent: 'space-between',
+              px: 2,
+              py: 2
+            }}>
+              <Typography sx={{
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                color: 'text.primary',
+                px: 1.5,
+                py: 0.5,
+                borderRadius: '4px',
+                bgcolor: theme => theme.palette.mode === 'dark' 
+                  ? 'rgba(0, 0, 0, 0.2)' 
+                  : 'rgba(255, 255, 255, 0.8)',
+                boxShadow: theme => theme.palette.mode === 'dark'
+                  ? '0 2px 4px rgba(0,0,0,0.2)'
+                  : '0 2px 4px rgba(0,0,0,0.1)',
+                backdropFilter: 'blur(4px)'
+              }}>
+                2021
+              </Typography>
+              <Typography sx={{
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                color: 'text.primary',
+                px: 1.5,
+                py: 0.5,
+                borderRadius: '4px',
+                bgcolor: theme => theme.palette.mode === 'dark' 
+                  ? 'rgba(0, 0, 0, 0.2)' 
+                  : 'rgba(255, 255, 255, 0.8)',
+                boxShadow: theme => theme.palette.mode === 'dark'
+                  ? '0 2px 4px rgba(0,0,0,0.2)'
+                  : '0 2px 4px rgba(0,0,0,0.1)',
+                backdropFilter: 'blur(4px)'
+              }}>
+                {currentYear}
+              </Typography>
+            </Box>
+          </Box>
         </Container>
       </Box>
 
@@ -774,7 +903,7 @@ const Home: FC = () => {
                 fontWeight: 600
               }}
             >
-              Join Our Community
+              Hop into Discord
             </Typography>
             <Typography 
               variant="h6" 
