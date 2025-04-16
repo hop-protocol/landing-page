@@ -911,7 +911,7 @@ Save on gas fees with optimized bridging and competitive rates.
       </Box>
 
       {/* Supported Tokens Section */}
-      <Box component="section" sx={{ py: { xs: 6, md: 10 } }}>
+      <Box component="section" sx={{ py: { xs: 6, md: 10 } }} style={{ paddingTop: 0 }}>
         <Container maxWidth="lg">
           <Typography
             variant="h2"
