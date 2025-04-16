@@ -533,12 +533,22 @@ const Home: FC = () => {
             fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4rem' },
             fontWeight: 800,
             mb: 3,
-            background: 'linear-gradient(90deg, rgb(226, 123, 216), rgb(142, 104, 224) 70%)',
+            background: 'linear-gradient(-70deg, #B32EFF 0%, #F2A498 25%, #B32EFF 50%, #F2A498 75%, #B32EFF 100%)',
+            backgroundSize: '200% auto',
+            animation: 'gradient 8s linear infinite',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             textShadow: theme => theme.palette.mode === 'dark'
-              ? '0 0 40px rgba(226, 123, 216, 0.3)'
-              : '0 0 40px rgba(226, 123, 216, 0.1)'
+              ? '0 0 40px rgba(179, 46, 255, 0.3)'
+              : '0 0 40px rgba(179, 46, 255, 0.1)',
+            '@keyframes gradient': {
+              '0%': {
+                backgroundPosition: '0% center'
+              },
+              '100%': {
+                backgroundPosition: '-200% center'
+              }
+            }
           }}>
             The Cross-Chain Bridge Protocol
           </Typography>
@@ -621,7 +631,7 @@ Send tokens between networks almost immediately without waiting for challenge pe
                     Secure & Trustless
                   </Typography>
                   <Typography variant="body1" color="textSecondary">
-Fully trustless cross-chain bridge with no central authority or validator set.
+Fully trustless cross-chain bridging with no central authority or validator set.
                   </Typography>
                 </Box>
                 <Box
@@ -1017,7 +1027,7 @@ Save on gas fees with optimized bridging and competitive rates.
               <Button
                 component="a"
                 href="https://docs.hop.exchange/developer-docs/js-sdk/getting-started"
-                target="_blank"
+              target="_blank"
                 rel="noopener"
                 endIcon={<Box component="span" sx={{ ml: 1 }}>→</Box>}
                 sx={{
@@ -1178,8 +1188,8 @@ console.log(tx.hash)`}
               <NavLink 
                 key={index} 
                 href={social.url} 
-                target="_blank"
-                rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
                 sx={{ 
                   ml: 0,
                   display: 'flex !important',
@@ -1231,7 +1241,7 @@ console.log(tx.hash)`}
                   }}
                 >
                   Documentation
-                </Typography>
+              </Typography>
                 <Stack spacing={1.5}>
                   <NavLink 
                     href={WHITEPAPER_URLS.v1} 
@@ -1258,8 +1268,8 @@ console.log(tx.hash)`}
                     Whitepaper V2
                   </NavLink>
                   <NavLink 
-                    href={docsUrl} 
-                    target="_blank"
+              href={docsUrl}
+              target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -1340,7 +1350,7 @@ console.log(tx.hash)`}
                   }}
                 >
                   Help
-                </Typography>
+              </Typography>
                 <Stack spacing={1.5}>
                   <NavLink 
                     href={faqUrl}
@@ -1367,8 +1377,8 @@ console.log(tx.hash)`}
                     Discord
                   </NavLink>
                   <NavLink 
-                    href={forumUrl}
-                    target="_blank"
+              href={forumUrl}
+              target="_blank"
                     sx={{ 
                       ml: 0,
                       display: 'flex !important',
@@ -1376,10 +1386,10 @@ console.log(tx.hash)`}
                     }}
                   >
                     <ForumIcon sx={{ mr: 1, fontSize: '1.2rem' }} /> 
-                    Forum
+                Forum
                   </NavLink>
                 </Stack>
-              </Box>
+          </Box>
             </Grid>
           </Grid>
         </Container>
