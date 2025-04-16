@@ -1,7 +1,7 @@
 // React and Material-UI imports
 import React, { FC } from 'react'
 import { styled } from '@mui/material/styles'
-import { Box, Typography, Link as MuiLink, Container, Grid, Avatar, Stack, Button, ButtonProps, Theme } from '@mui/material'
+import { Box, Typography, Link as MuiLink, Container, Grid, Avatar, Stack, Button, ButtonProps } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
@@ -18,7 +18,6 @@ import SecurityIcon from '@mui/icons-material/Security'
 import SavingsIcon from '@mui/icons-material/Savings'
 import { useColorMode } from '../ThemeProvider'
 import { Highlight as PrismHighlight, themes } from 'prism-react-renderer'
-import type { Language } from 'prism-react-renderer'
 
 // Import URLs from config
 import {
@@ -409,18 +408,6 @@ const nightOwlTheme = {
     ...themes.nightOwl.plain,
     backgroundColor: 'transparent'
   }
-}
-
-interface HighlightProps {
-  className?: string;
-  style?: React.CSSProperties;
-  tokens: Array<Array<{
-    types: string[];
-    content: string;
-    empty?: boolean;
-  }>>;
-  getLineProps: (props: any) => any;
-  getTokenProps: (props: any) => any;
 }
 
 const Home: FC = () => {
