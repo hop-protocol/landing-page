@@ -595,7 +595,7 @@ const Home: FC = () => {
                 : '0px 0px 40px rgba(226, 123, 216, 0.15)'
             }}
           >
-            Bridge Securely, Faster, and Cheaper
+            Hop Faster, Safer, and Cheaper
           </Typography>
           <Grid container spacing={4} sx={{ mb: 8 }}>
             <Grid item xs={12} md={4}>
@@ -834,8 +834,7 @@ Save on gas fees with optimized bridging and competitive rates.
         py: { xs: 8, sm: 10 },
         background: theme.palette.mode === 'dark'
           ? 'linear-gradient(180deg, rgba(232, 65, 66, 0.05) 0%, rgba(0, 0, 0, 0) 100%)'
-          : 'linear-gradient(180deg, rgba(232, 65, 66, 0.03) 0%, rgba(255, 255, 255, 0) 100%)',
-        borderBottom: `1px solid ${theme.palette.divider}`
+          : 'linear-gradient(180deg, rgba(232, 65, 66, 0.03) 0%, rgba(255, 255, 255, 0) 100%)'
       })}>
         <Container maxWidth="lg">
           <Typography variant="h2" sx={{
@@ -844,7 +843,7 @@ Save on gas fees with optimized bridging and competitive rates.
             mb: 2,
             textAlign: 'center'
           }}>
-            Supported Networks
+            Ethereum L2 Networks Supported
           </Typography>
           <Typography variant="h6" align="center" color="textSecondary" sx={{ 
             mb: { xs: 4, sm: 6 },
@@ -852,7 +851,7 @@ Save on gas fees with optimized bridging and competitive rates.
             mx: 'auto',
             fontSize: { xs: '1rem', sm: '1.1rem' }
           }}>
-            Hop Protocol supports major Ethereum Layer 2 networks, enabling fast and secure cross-chain transfers
+            Hop Protocol supports major Ethereum Layer-2 networks, enabling fast and secure cross-chain transfers.
           </Typography>
           
           <Grid container spacing={3}>
@@ -931,7 +930,7 @@ Save on gas fees with optimized bridging and competitive rates.
             mx: 'auto',
             fontSize: { xs: '1rem', sm: '1.1rem' }
           }}>
-            Bridge your favorite tokens across networks with fast, secure, and cost-effective transfers
+          The most popular tokens are available to transfer between most supported networks on Hop Protocol. 
           </Typography>
           <Grid container spacing={3}>
             {supportedTokens.map((token) => (
