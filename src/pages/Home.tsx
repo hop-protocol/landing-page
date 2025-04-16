@@ -1,8 +1,7 @@
 // React and Material-UI imports
 import React, { FC } from 'react'
 import { styled } from '@mui/material/styles'
-import { Box, Typography, Link as MuiLink, Container, Grid, Avatar, Stack } from '@mui/material'
-import Button, { ButtonProps } from '@mui/material/Button'
+import { Box, Typography, Link as MuiLink, Container, Grid, Avatar, Stack, Button, ButtonProps, Theme } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
@@ -18,6 +17,8 @@ import FlashOnIcon from '@mui/icons-material/FlashOn'
 import SecurityIcon from '@mui/icons-material/Security'
 import SavingsIcon from '@mui/icons-material/Savings'
 import { useColorMode } from '../ThemeProvider'
+import { Highlight as PrismHighlight, themes } from 'prism-react-renderer'
+import type { Language } from 'prism-react-renderer'
 
 // Import URLs from config
 import {
@@ -385,6 +386,42 @@ const TokenCard: React.FC<TokenCardProps> = ({ icon, name, fullName, description
     </Box>
   </Card>
 )
+
+const CodeBlock = styled(Box)(({ theme }) => ({
+  padding: '2rem',
+  borderRadius: '8px',
+  fontFamily: 'monospace',
+  fontSize: '0.9rem',
+  lineHeight: 1.5,
+  overflow: 'auto',
+  backgroundColor: theme.palette.mode === 'dark' ? '#011627' : '#F6F8FA',
+  border: `1px solid ${theme.palette.mode === 'dark' ? '#1E2D3D' : '#E1E4E8'}`,
+  '& pre': {
+    margin: 0,
+    padding: 0,
+    overflow: 'auto',
+  },
+}))
+
+const nightOwlTheme = {
+  ...themes.nightOwl,
+  plain: {
+    ...themes.nightOwl.plain,
+    backgroundColor: 'transparent'
+  }
+}
+
+interface HighlightProps {
+  className?: string;
+  style?: React.CSSProperties;
+  tokens: Array<Array<{
+    types: string[];
+    content: string;
+    empty?: boolean;
+  }>>;
+  getLineProps: (props: any) => any;
+  getTokenProps: (props: any) => any;
+}
 
 const Home: FC = () => {
   const { mode, toggleColorMode } = useColorMode()
@@ -897,6 +934,152 @@ Save on gas fees with optimized bridging and competitive rates.
               </Grid>
             ))}
           </Grid>
+        </Container>
+      </Box>
+
+      {/* Build with Hop (Developer) Section */}
+      <Box
+        sx={{
+          position: 'relative',
+          py: { xs: 8, md: 12 },
+          backgroundColor: theme => theme.palette.mode === 'dark' ? 'rgba(39, 35, 50, 0.5)' : 'rgba(253, 247, 249, 0.5)',
+          borderTop: theme => `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)'}`,
+          borderBottom: theme => `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)'}`,
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: theme => theme.palette.mode === 'dark'
+              ? 'radial-gradient(circle at top right, rgba(179, 46, 255, 0.08), transparent 60%), radial-gradient(circle at bottom left, rgba(242, 164, 152, 0.08), transparent 60%)'
+              : 'radial-gradient(circle at top right, rgba(179, 46, 255, 0.05), transparent 60%), radial-gradient(circle at bottom left, rgba(242, 164, 152, 0.05), transparent 60%)',
+            zIndex: 0,
+            pointerEvents: 'none'
+          },
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: theme => theme.palette.mode === 'dark'
+              ? 'linear-gradient(45deg, rgba(179, 46, 255, 0.03) 0%, transparent 73%, rgba(242, 164, 152, 0.03) 100%)'
+              : 'linear-gradient(45deg, rgba(179, 46, 255, 0.02) 0%, transparent 73%, rgba(242, 164, 152, 0.02) 100%)',
+            zIndex: 0,
+            pointerEvents: 'none'
+          }
+        }}
+      >
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', md: 'row' },
+              gap: { xs: 4, md: 8 },
+              alignItems: 'center',
+            }}
+          >
+            <Box 
+              flex={1}
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 3,
+                alignItems: { xs: 'center', md: 'flex-start' },
+                textAlign: { xs: 'center', md: 'left' },
+                order: { xs: 1, md: 1 }
+              }}
+            >
+              <Typography 
+                variant="h2" 
+                sx={{
+                  fontSize: { xs: '2rem', sm: '2.5rem' },
+                  fontWeight: 700,
+                  mb: 2,
+                }}
+              >
+                Build with Hop
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '1.1rem',
+                  color: 'text.secondary',
+                  mb: 3,
+                  maxWidth: '540px'
+                }}
+              >
+                Integrate the Hop JavaScript SDK into your application with just a few lines of code. Our SDK makes it simple to enable cross-chain token transfers.
+              </Typography>
+              <Button
+                component="a"
+                href="https://docs.hop.exchange/developer-docs/js-sdk/getting-started"
+                target="_blank"
+                rel="noopener"
+                endIcon={<Box component="span" sx={{ ml: 1 }}>→</Box>}
+                sx={{
+                  minWidth: { xs: '80%', sm: '60%', md: '240px' },
+                  padding: '1.2rem 5rem',
+                  fontSize: '1.1rem',
+                  borderRadius: '8px',
+                  backgroundColor: theme => theme.palette.mode === 'dark' ? '#272332' : 'transparent',
+                  color: '#B32EFF',
+                  boxShadow: theme => theme.palette.mode === 'dark' 
+                    ? '10px -10px 30px rgba(79, 74, 94, 0.3), -10px 10px 30px rgba(11, 9, 30, 0.48)'
+                    : '10px -10px 30px #FFFFFF, -10px 10px 30px #D8D5DC',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: theme => theme.palette.mode === 'dark'
+                      ? '15px -15px 35px rgba(79, 74, 94, 0.3), -15px 15px 35px rgba(11, 9, 30, 0.48)'
+                      : '15px -15px 35px #FFFFFF, -15px 15px 35px #D8D5DC',
+                  },
+                  '&:active': {
+                    transform: 'translateY(0)',
+                  }
+                }}
+              >
+                View Documentation
+              </Button>
+            </Box>
+
+            <Box 
+              flex={1}
+              sx={{
+                order: { xs: 2, md: 2 },
+                width: '100%'
+              }}
+            >
+              <CodeBlock>
+                <PrismHighlight
+                  theme={nightOwlTheme}
+                  code={`import { Hop } from '@hop-protocol/sdk'
+
+// Send 100 USDC tokens from Optimism -> Base
+const hop = new Hop('mainnet')
+const bridge = hop.connect(signer).bridge('USDC')
+
+const tx = await bridge.send('100000000', 'optimism', 'base')
+console.log(tx.hash)`}
+                  language="typescript"
+                >
+                  {({className, style, tokens, getLineProps, getTokenProps}) => (
+                    <pre className={className} style={{...style, background: 'transparent', margin: 0, padding: '1rem'}}>
+                      {tokens.map((line, i) => (
+                        <div key={i} {...getLineProps({line, key: i})}>
+                          {line.map((token, key) => (
+                            <span key={key} {...getTokenProps({token, key})} />
+                          ))}
+                        </div>
+                      ))}
+                    </pre>
+                  )}
+                </PrismHighlight>
+              </CodeBlock>
+            </Box>
+          </Box>
         </Container>
       </Box>
 
